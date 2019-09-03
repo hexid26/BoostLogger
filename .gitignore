@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+*_cpp
+
+# Log file
+*.log

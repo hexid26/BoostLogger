@@ -1,0 +1,47 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558 
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "presentation": {
+    "echo": true,
+    "reveal": "silent",
+    "focus": false,
+    "panel": "shared"
+  },
+  "problemMatcher": "$gcc",
+  "tasks": [
+    {
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "label": "clang++ build active file",
+      "command": "clang++",
+      "osx": {
+        "args": [
+          "-std=c++11",
+          "-Wall",
+          "-O3",
+          "\"./${relativeFile}\" -o \"${workspaceFolder}/release/${fileBasenameNoExtension}_cpp\"",
+          "-lboost_log-mt",
+          "-lboost_log_setup-mt",
+          "-lboost_system",
+          "-lboost_thread-mt",
+        ]
+      },
+      "linux": {
+        "args": [
+          "-std=c++11",
+          "-Wall",
+          "-O3",
+          "\"./${relativeFile}\" -o \"${workspaceFolder}/release/${fileBasenameNoExtension}_cpp\"",
+          "-lboost_log",
+          "-lboost_log_setup",
+          "-lboost_system",
+          "-lboost_thread",
+        ]
+      }
+    }
+  ]
+}
